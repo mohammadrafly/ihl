@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      },
       animation: {
         'slide-left-to-right': 'leftToRight 1s ease-in-out',
         'slide-right-to-left': 'rightToLeft 1s ease-in-out',
