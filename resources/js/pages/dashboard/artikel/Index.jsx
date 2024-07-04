@@ -34,7 +34,7 @@ const Index = () => {
 
         try {
             setLoading(true);
-            const response = await fetch(`artikel/delete/${id}`, {
+            const response = await fetch(`dashboard/artikel/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

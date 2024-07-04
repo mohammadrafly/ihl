@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { router } from '@inertiajs/react';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import { ClassicEditor, Bold, Essentials, Italic, Mention, Paragraph, Undo, Image } from 'ckeditor5';
-
-import 'ckeditor5/ckeditor5.css';
+import { Editor } from '@tinymce/tinymce-react';
 
 const Create = () => {
     const [title, setTitle] = useState('');
@@ -12,14 +9,31 @@ const Create = () => {
     const [image, setImage] = useState(null);
     const [csrf, setCsrf] = useState('');
     const [formErrors, setFormErrors] = useState({});
+    const editorRef = useRef(null);
 
     useEffect(() => {
         const csrfToken = document.querySelector('meta[name="csrf"]').getAttribute('content');
         setCsrf(csrfToken);
     }, []);
 
+    const validateForm = () => {
+        const errors = {};
+        if (!title) {
+            errors.title = 'Title is required';
+        }
+        if (!content) {
+            errors.content = 'Content is required';
+        }
+        setFormErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
 
         const formData = new FormData();
         formData.append('title', title);
@@ -75,21 +89,28 @@ const Create = () => {
                     <label htmlFor="content" className="block text-sm font-medium text-gray-700">
                         Content
                     </label>
-                    <CKEditor
+                    <Editor
                         id="content"
                         name="content"
-                        data={content}
-                        onChange={(event, editor) => setContent(editor.getData())}
                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                        editor={ ClassicEditor }
-                        config={ {
-                            toolbar: {
-                                items: [ 'undo', 'redo', '|', 'bold', 'italic', 'paragraph', 'image' ],
-                            },
+                        apiKey='4ipzyok5srwk2ajz0j04i2q6g2gallzv6q4nd5fa1e1g476g'
+                        onInit={(_evt, editor) => editorRef.current = editor}
+                        initialValue="<p>This is the initial content of the editor.</p>"
+                        init={{
+                            height: 500,
+                            menubar: false,
                             plugins: [
-                                Bold, Essentials, Italic, Mention, Paragraph, Undo
-                            ]
-                        } }
+                                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                                'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+                            ],
+                            toolbar: 'undo redo | blocks | ' +
+                                'bold italic forecolor | alignleft aligncenter ' +
+                                'alignright alignjustify | bullist numlist outdent indent | ' +
+                                'removeformat | help',
+                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                        }}
+                        onChange={(event, editor) => setContent(editor.getContent())}
                     />
                     {formErrors.content && (
                         <div className="text-red-500 text-sm mt-1">{formErrors.content}</div>
