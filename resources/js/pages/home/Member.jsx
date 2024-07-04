@@ -18,7 +18,7 @@ export default function Member() {
 
     return (
         <HomeLayout>
-            <div className='lg:px-32 lg:py-10'>
+            <div className='xl:px-64 xl:py-10'>
                 <div className='overflow-x-auto py-5'>
                     <table ref={tableRef} className='table-auto min-w-full divide-y divide-gray-200'>
                         <thead>

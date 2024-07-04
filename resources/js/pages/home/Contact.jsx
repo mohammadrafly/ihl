@@ -61,8 +61,8 @@ export default function Contact() {
 
     return (
         <HomeLayout>
-            <div className='lg:px-32 lg:py-10 grid grid-cols-1 md:grid-cols-2 gap-4'>
-                <div className='max-w-3xl p-5 bg-white shadow-md rounded-lg'>
+            <div className='xl:px-64 xl:py-10 grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <div className='max-w-3xl p-5 bg-white shadow-md rounded-xl'>
                     <h1 className='text-2xl font-bold mb-4 text-gray-800'>Contact Us</h1>
                     {flashMessage.message && (
                         <div className={`mb-4 p-4 rounded ${flashMessage.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
@@ -142,14 +142,14 @@ export default function Contact() {
                         </div>
                     </form>
                 </div>
-                <div className='max-w-3xl p-5 bg-white shadow-md rounded-lg flex flex-col justify-center items-center text-center space-y-4'>
-                    <p className='text-gray-800 text-lg'>
+                <div className='max-w-3xl p-5 bg-white shadow-md rounded-xl flex flex-col justify-center items-center text-center space-y-4'>
+                    <p className='text-gray-800 text-xl'>
                         <strong>Email:</strong> <a href="mailto:indonesiakuhijaulestari@gmail.com" className='text-blue-500'>indonesiakuhijaulestari@gmail.com</a>
                     </p>
-                    <p className='text-gray-800 text-lg'>
+                    <p className='text-gray-800 text-xl'>
                         <strong>IG:</strong> <a href="https://www.instagram.com/indonesiakuhijaulestari/" className='text-blue-500'>@indonesiakuhijaulestari</a>
                     </p>
-                    <p className='text-gray-800 text-lg'>
+                    <p className='text-gray-800 text-xl'>
                         <strong>DONASI:</strong><br />
                         a/n. Indonesiaku Hijau Lestari<br />
                         Bank Mandiri cabang Batu<br />
@@ -157,7 +157,7 @@ export default function Contact() {
                     </p>
                 </div>
             </div>
-            <div className='mt-8 text-gray-100 lg:px-96 md:px-64 bg-red-500 p-10'>
+            <div className='mt-8 text-gray-100 xl:px-96 md:px-64 bg-red-500 p-10'>
                 <p className='font-semibold text-center'>PERHATIAN:</p>
                 <p className='font-semibold text-center'>
                     "Setiap tindakan yang mengatasnamakan IHL untuk melakukan kegiatan illegal akan diproses melalui hukum yang berlaku, dan segala bentuk donasi harus melalui rekening Lembaga dan TIDAK melalui rekening pribadi masing-masing anggota"

@@ -12,7 +12,7 @@ export default function Header() {
     const isActive = (href) => url === href;
 
     return (
-        <div className="bg-green-500 text-gray-100 flex justify-between items-center p-2 px-5 lg:px-32 top-0 sticky">
+        <div className="bg-green-500 text-gray-100 flex justify-between items-center p-2 px-5 2xl:px-32 top-0 sticky">
             <div className="text-2xl font-bold flex items-center">
                 <img src="assets/images/logo.png" alt="Logo" width={50} height={50} />
                 <h1 className="px-5 font-bold font-roboto">INDONESIAKU HIJAU LESTARI</h1>

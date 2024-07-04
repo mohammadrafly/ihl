@@ -27,6 +27,7 @@ class ArticlesController extends Controller
                 'title' => 'required|string|max:255',
                 'content' => 'required|string',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'created_at' => 'required'
             ]);
 
             if ($validator->fails()) {

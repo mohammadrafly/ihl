@@ -11,7 +11,7 @@ export default function Profile() {
             case "latar belakangan":
                 return (
                     <div>
-                        <img src="assets/images/latar-belakang.jpg" alt="" className="rounded-lg"/>
+                        <img src="assets/images/latar-belakang.jpg" alt="" className="rounded-xl"/>
                         Pada era modern ini, tantangan terbesar yang dihadapi manusia adalah menjaga keseimbangan antara pembangunan ekonomi dan pelestarian lingkungan hidup. Di tengah-tengah urbanisasi yang cepat dan pertumbuhan populasi yang tak terelakkan, ekosistem alam kita semakin terancam oleh perubahan iklim, degradasi habitat, dan polusi lingkungan. <br/><br></br>
                         Dalam menghadapi tantangan ini, berdirinya Indonesiaku Hijau Lestari, sebuah lembaga non-profit yang didedikasikan untuk pelestarian dan perlindungan lingkungan hidup, menjadi sangat penting. Berawal dari kesadaran akan pentingnya menjaga alam sebagai warisan yang harus kita jaga bagi generasi mendatang, Indonesiaku Hijau Lestari didirikan dengan tujuan utama untuk melindungi keanekaragaman hayati, memulihkan ekosistem yang terdegradasi, dan mendidik masyarakat tentang pentingnya berkontribusi dalam upaya pelestarian alam. <br/><br></br>
                         Diprakarsai oleh alhm. Bapak Suhadi Pangestu, Lembaga ini telah disahkan secara hukum melalui surat pengesahan Kementrian Hukum dan Hak Asasi Manusia Republik Indonesia dengan nomor AHU-0000411.AH.01.07.TAHUN 2022 dengan Akta Notaris no. 06 tanggal 23 Juni 2021 yang didirikan berazaskan Pancasila dan Undang-undang Dasar Negara Republik Indonesia 1945 yang bertujuan social dalam menjaga, mengawasi dan memberikan edukasi serta solusi terhadap segala permasalahan lingkungan demi menciptakan lingkungan alam yang Lestari dan berkesinambungan. Melalui kolaborasi dengan pemerintah, lembaga swadaya masyarakat, sektor bisnis, dan masyarakat umum, kami telah berhasil melaksanakan sejumlah inisiatif yang signifikan dalam upaya kami untuk mengatasi tantangan lingkungan yang semakin kompleks.<br/><br></br>
@@ -67,9 +67,9 @@ export default function Profile() {
 
     return (
         <HomeLayout>
-            <div className="w-full min-h-screen lg:px-32 lg:py-10">
-                <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 p-4">
-                    <div className="lg:col-span-2 bg-white p-4">
+            <div className="w-full min-h-screen xl:px-64 xl:py-10">
+                <div className="grid grid-cols-1 xl:grid-cols-6 gap-4">
+                    <div className="xl:col-span-2 bg-white p-4">
                         <ul className="flex flex-col space-y-2">
                             <li>
                                 <button
@@ -105,7 +105,7 @@ export default function Profile() {
                             </li>
                         </ul>
                     </div>
-                    <div className="lg:col-span-4 bg-white p-4">
+                    <div className="xl:col-span-4 bg-white p-4">
                         {renderContent()}
                     </div>
                 </div>

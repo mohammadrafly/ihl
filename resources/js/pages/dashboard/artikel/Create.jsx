@@ -7,6 +7,7 @@ const Create = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [image, setImage] = useState(null);
+    const [createdAt, setCreatedAt] = useState('');
     const [csrf, setCsrf] = useState('');
     const [formErrors, setFormErrors] = useState({});
     const editorRef = useRef(null);
@@ -25,6 +26,7 @@ const Create = () => {
         if (image) {
             formData.append('image', image);
         }
+        formData.append('created_at', createdAt);
 
         try {
             const response = await fetch('dashboard/artikel/create', {
@@ -114,6 +116,23 @@ const Create = () => {
                     />
                     {formErrors.image && (
                         <div className="text-red-500 text-sm mt-1">{formErrors.image}</div>
+                    )}
+                </div>
+
+                <div>
+                    <label htmlFor="created_at" className="block text-sm font-medium text-gray-700">
+                        Created At
+                    </label>
+                    <input
+                        type="date"
+                        id="created_at"
+                        name="created_at"
+                        value={createdAt}
+                        onChange={(e) => setCreatedAt(e.target.value)}
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                    />
+                    {formErrors.created_at && (
+                        <div className="text-red-500 text-sm mt-1">{formErrors.created_at}</div>
                     )}
                 </div>
 

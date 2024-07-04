@@ -7,7 +7,7 @@ function ArtikelList() {
     const { artikelAll } = usePage().props;
 
     return (
-        <div className="container mx-auto ">
+        <div className="">
             {artikelAll.length === 0 ? (
                 <div className="text-center text-gray-500">
                     No articles available.
@@ -28,7 +28,7 @@ function ArtikelList() {
                                 <FormattedDate date={article.created_at} />
                             </p>
                             <div className="mt-3 text-[#666666]">
-                                <TruncateContent content={article.content} length={200}  />
+                                <TruncateContent content={article.content} length={150}  />
                             </div>
                             <Link href={`/article/${article.id}`} className="text-blue-500 hover:underline">
                                 Read More
