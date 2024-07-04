@@ -34,7 +34,7 @@ const Index = () => {
 
         try {
             setLoading(true);
-            const response = await fetch(`artikel/delete/${id}`, {
+            const response = await fetch(`dashboard/member/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -90,9 +90,9 @@ const Index = () => {
                             <td className="py-2 px-4 border">{member.jabatan}</td>
                             <td className="py-2 px-4 border">{member.kta}</td>
                             <td className="py-2 px-4 border">{member.wilayah}</td>
-                            <td className="py-2 px-4 border">{member.status ? 'Active' : 'Inactive'}</td>
+                            <td className="py-2 px-4 border">{member.status == 'active' ? 'Active' : 'Inactive'}</td>
                             <td className="py-2 px-4 border">
-                                <Link href={`artikel/update/${member.id}`} className="mr-2">View</Link>
+                                <Link href={`/dashboard/member/update/${member.id}`} className="mr-2">View</Link>
                                 <button
                                     onClick={() => handleDelete(member.id)}
                                     className="text-red-600 hover:text-red-800"

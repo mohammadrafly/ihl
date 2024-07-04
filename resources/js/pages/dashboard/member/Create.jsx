@@ -24,9 +24,7 @@ const Create = () => {
         formData.append('jabatan', jabatan);
         formData.append('wilayah', wilayah);
         formData.append('status', status);
-        if (kta) {
-            formData.append('kta', kta);
-        }
+        formData.append('kta', kta);
 
         try {
             const response = await fetch('dashboard/member/create', {
@@ -130,6 +128,7 @@ const Create = () => {
                         onChange={(e) => setStatus(e.target.value)}
                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                     >
+                        <option value="" selected>Pilih Status</option>
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
                     </select>

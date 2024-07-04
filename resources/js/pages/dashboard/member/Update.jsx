@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import DashboardLayout from '../../layouts/DashboardLayout';
 import { Link, router, usePage } from '@inertiajs/react';
 
-const Update = () => {
-    const { artikel } = usePage().props;
+const Create = () => {
+    const { member } = usePage().props;
 
-    const [title, setTitle] = useState(artikel.title);
-    const [content, setContent] = useState(artikel.content);
-    const [image, setImage] = useState(artikel.image);
+    const [nama, setNama] = useState(member.nama);
+    const [jabatan, setJabatan] = useState(member.jabatan);
+    const [kta, setKta] = useState(member.kta);
+    const [wilayah, setWilayah] = useState(member.wilayah);
+    const [status, setStatus] = useState(member.status);
     const [csrf, setCsrf] = useState('');
     const [formErrors, setFormErrors] = useState({});
 
@@ -20,14 +22,14 @@ const Update = () => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append('title', title);
-        formData.append('content', content);
-        if (image) {
-            formData.append('image', image);
-        }
+        formData.append('nama', nama);
+        formData.append('jabatan', jabatan);
+        formData.append('wilayah', wilayah);
+        formData.append('status', status);
+        formData.append('kta', kta);
 
         try {
-            const response = await fetch(artikel.id, {
+            const response = await fetch('dashboard/member/create', {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': csrf
@@ -49,55 +51,90 @@ const Update = () => {
 
     return (
         <DashboardLayout>
-            <h1 className="text-2xl font-bold mb-4">Update Artikel</h1>
+            <h1 className="text-2xl font-bold mb-4">Create Member</h1>
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                    <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-                        Title
+                    <label htmlFor="nama" className="block text-sm font-medium text-gray-700">
+                        Nama
                     </label>
                     <input
                         type="text"
-                        id="title"
-                        name="title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        id="nama"
+                        name="nama"
+                        value={nama}
+                        onChange={(e) => setNama(e.target.value)}
                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                     />
-                    {formErrors.title && (
-                        <div className="text-red-500 text-sm mt-1">{formErrors.title}</div>
+                    {formErrors.nama && (
+                        <div className="text-red-500 text-sm mt-1">{formErrors.nama}</div>
                     )}
                 </div>
 
                 <div>
-                    <label htmlFor="content" className="block text-sm font-medium text-gray-700">
-                        Content
-                    </label>
-                    <textarea
-                        id="content"
-                        name="content"
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-                    />
-                    {formErrors.content && (
-                        <div className="text-red-500 text-sm mt-1">{formErrors.content}</div>
-                    )}
-                </div>
-
-                <div>
-                    <label htmlFor="image" className="block text-sm font-medium text-gray-700">
-                        Image
+                    <label htmlFor="jabatan" className="block text-sm font-medium text-gray-700">
+                        Jabatan
                     </label>
                     <input
-                        type="file"
-                        id="image"
-                        name="image"
-                        onChange={(e) => setImage(e.target.files[0])}
+                        id="jabatan"
+                        name="jabatan"
+                        value={jabatan}
+                        onChange={(e) => setJabatan(e.target.value)}
                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
                     />
-                    {formErrors.image && (
-                        <div className="text-red-500 text-sm mt-1">{formErrors.image}</div>
+                    {formErrors.jabatan && (
+                        <div className="text-red-500 text-sm mt-1">{formErrors.jabatan}</div>
+                    )}
+                </div>
+
+                <div>
+                    <label htmlFor="kta" className="block text-sm font-medium text-gray-700">
+                        Kta
+                    </label>
+                    <input
+                        id="kta"
+                        name="kta"
+                        value={kta}
+                        onChange={(e) => setKta(e.target.value)}
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                    />
+                    {formErrors.kta && (
+                        <div className="text-red-500 text-sm mt-1">{formErrors.kta}</div>
+                    )}
+                </div>
+
+                <div>
+                    <label htmlFor="wilayah" className="block text-sm font-medium text-gray-700">
+                        Wilayah
+                    </label>
+                    <input
+                        id="wilayah"
+                        name="wilayah"
+                        value={wilayah}
+                        onChange={(e) => setWilayah(e.target.value)}
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                    />
+                    {formErrors.wilayah && (
+                        <div className="text-red-500 text-sm mt-1">{formErrors.wilayah}</div>
+                    )}
+                </div>
+
+                <div>
+                    <label htmlFor="status" className="block text-sm font-medium text-gray-700">
+                        Status
+                    </label>
+                    <select
+                        id="status"
+                        name="status"
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                    >
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                    {formErrors.status && (
+                        <div className="text-red-500 text-sm mt-1">{formErrors.status}</div>
                     )}
                 </div>
 
@@ -105,11 +142,11 @@ const Update = () => {
                     type="submit"
                     className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600"
                 >
-                    Update
+                    Create
                 </button>
             </form>
         </DashboardLayout>
     );
 };
 
-export default Update;
+export default Create;
