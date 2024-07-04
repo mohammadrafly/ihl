@@ -1,16 +1,10 @@
 import React from "react";
 import { Link, usePage } from "@inertiajs/react";
 import HomeLayout from "../layouts/HomeLayout";
+import TruncateContent from "./TruncatedContent";
 
 function ArtikelYear() {
     const { artikelAll } = usePage().props;
-
-    const shortenContent = (content, maxLength) => {
-        if (content.length <= maxLength) {
-            return content;
-        }
-        return content.slice(0, maxLength) + "...";
-    };
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -40,7 +34,9 @@ function ArtikelYear() {
                             <div className="px-5">
                                 <h2 className="text-2xl font-bold mb-2 text-[#333333]">{article.title}</h2>
                                 <p className="mb-2 text-[#666666]">{formatDate(article.created_at)}</p>
-                                <div className="mt-3 text-[#666666]" dangerouslySetInnerHTML={{ __html: shortenContent(article.content, 150) }} />
+                                <div className="mt-3 text-[#666666]">
+                                    <TruncateContent content={article.content} length={200}  />
+                                </div>
                                 <Link href={`/article/${article.id}`} className="text-blue-500 hover:underline">
                                     Read More
                                 </Link>

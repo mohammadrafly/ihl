@@ -8,7 +8,7 @@ const Update = () => {
 
     const [title, setTitle] = useState(artikel.title);
     const [content, setContent] = useState(artikel.content);
-    const [image, setImage] = useState(artikel.image);
+    const [image, setImage] = useState(null);
     const [csrf, setCsrf] = useState('');
     const [formErrors, setFormErrors] = useState({});
     const editorRef = useRef(null);

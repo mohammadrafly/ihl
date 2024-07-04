@@ -1,23 +1,10 @@
 import React from "react";
 import { Link, usePage } from "@inertiajs/react";
+import TruncateContent from "./TruncatedContent";
+import FormattedDate from './FormattedDate';
 
 function ArtikelList() {
     const { artikelAll } = usePage().props;
-
-    const shortenContent = (content, maxLength) => {
-        if (content.length <= maxLength) {
-            return content;
-        }
-        return content.slice(0, maxLength) + "...";
-    };
-
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
-    };
 
     return (
         <div className="container mx-auto ">
@@ -37,8 +24,12 @@ function ArtikelList() {
                         </div>
                         <div className="px-5">
                             <h2 className="text-2xl font-bold mb-2 text-[#333333]">{article.title}</h2>
-                            <p className="mb-2 text-[#666666]">{formatDate(article.created_at)}</p>
-                            <div className="mt-3 text-[#666666]" dangerouslySetInnerHTML={{ __html: shortenContent(article.content, 150) }} />
+                            <p className="mb-2 text-[#666666]">
+                                <FormattedDate date={article.created_at} />
+                            </p>
+                            <div className="mt-3 text-[#666666]">
+                                <TruncateContent content={article.content} length={200}  />
+                            </div>
                             <Link href={`/article/${article.id}`} className="text-blue-500 hover:underline">
                                 Read More
                             </Link>

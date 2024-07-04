@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HomeLayout from "../layouts/HomeLayout";
+import Mermaid from "../components/Mermaid";
+import diagram from "../components/diagram";
 
 export default function Profile() {
     const [activeContent, setActiveContent] = useState("latar belakangan");
@@ -7,17 +9,59 @@ export default function Profile() {
     const renderContent = () => {
         switch (activeContent) {
             case "latar belakangan":
-                return <p>Latar belakangan Content</p>;
+                return (
+                    <div>
+                        <img src="assets/images/latar-belakang.jpg" alt="" className="rounded-lg"/>
+                        Pada era modern ini, tantangan terbesar yang dihadapi manusia adalah menjaga keseimbangan antara pembangunan ekonomi dan pelestarian lingkungan hidup. Di tengah-tengah urbanisasi yang cepat dan pertumbuhan populasi yang tak terelakkan, ekosistem alam kita semakin terancam oleh perubahan iklim, degradasi habitat, dan polusi lingkungan. <br/><br></br>
+                        Dalam menghadapi tantangan ini, berdirinya Indonesiaku Hijau Lestari, sebuah lembaga non-profit yang didedikasikan untuk pelestarian dan perlindungan lingkungan hidup, menjadi sangat penting. Berawal dari kesadaran akan pentingnya menjaga alam sebagai warisan yang harus kita jaga bagi generasi mendatang, Indonesiaku Hijau Lestari didirikan dengan tujuan utama untuk melindungi keanekaragaman hayati, memulihkan ekosistem yang terdegradasi, dan mendidik masyarakat tentang pentingnya berkontribusi dalam upaya pelestarian alam. <br/><br></br>
+                        Diprakarsai oleh alhm. Bapak Suhadi Pangestu, Lembaga ini telah disahkan secara hukum melalui surat pengesahan Kementrian Hukum dan Hak Asasi Manusia Republik Indonesia dengan nomor AHU-0000411.AH.01.07.TAHUN 2022 dengan Akta Notaris no. 06 tanggal 23 Juni 2021 yang didirikan berazaskan Pancasila dan Undang-undang Dasar Negara Republik Indonesia 1945 yang bertujuan social dalam menjaga, mengawasi dan memberikan edukasi serta solusi terhadap segala permasalahan lingkungan demi menciptakan lingkungan alam yang Lestari dan berkesinambungan. Melalui kolaborasi dengan pemerintah, lembaga swadaya masyarakat, sektor bisnis, dan masyarakat umum, kami telah berhasil melaksanakan sejumlah inisiatif yang signifikan dalam upaya kami untuk mengatasi tantangan lingkungan yang semakin kompleks.<br/><br></br>
+                        Dukungan yang kami terima dari para donatur, sukarelawan, dan mitra telah memungkinkan kami untuk meraih berbagai pencapaian yang membanggakan dalam upaya pelestarian alam. Namun, kami sadar bahwa perjalanan ini masih jauh dari selesai, dan kami berkomitmen untuk terus bekerja keras demi menciptakan sebuah dunia di mana manusia dan alam dapat hidup berdampingan dalam harmoni.<br/><br></br>
+                        Dengan dorongan semangat dan dukungan yang terus-menerus dari seluruh pihak, Indonesiaku Hijau Lestari yakin bahwa kita dapat mencapai tujuan bersama dalam melestarikan lingkungan hidup untuk generasi mendatang.<br/><br></br>
+                    </div>
+                );
             case "visi misi":
-                return <p>Visi misi Content</p>;
+                return (
+                    <div className="max-w-3xl mx-auto">
+                        <h2 className="text-3xl font-bold mb-4">VISI</h2>
+                        <p className="mb-6">
+                            Menciptakan sebuah dunia di mana manusia hidup beriringan dengan alam, memelihara keanekaragaman hayati, dan mengurangi jejak ekologis.
+                        </p>
+
+                        <h2 className="text-3xl font-bold mb-4">MISI</h2>
+                        <ol className="list-decimal list-inside">
+                            <li className="mb-4">
+                                <span className="font-bold">Konservasi dan Perlindungan:</span> Melindungi ekosistem alami dan spesies yang terancam punah melalui langkah-langkah konservasi yang holistik.
+                            </li>
+                            <li className="mb-4">
+                                <span className="font-bold">Pendidikan dan Kesadaran:</span> Memberikan pemahaman yang mendalam kepada masyarakat tentang pentingnya menjaga lingkungan hidup dan bagaimana setiap individu dapat berkontribusi serta membangun masyarakat yang mandiri melalui pengembangan pribadi yang berbasis sumber daya alam dengan cara yang baik dan benar.
+                            </li>
+                            <li className="mb-4">
+                                <span className="font-bold">Restorasi Lingkungan:</span> Mengembalikan ekosistem yang rusak melalui kegiatan restorasi lahan, pembersihan pantai, dan rehabilitasi habitat alami.
+                            </li>
+                            <li className="mb-4">
+                                <span className="font-bold">Kebijakan Lingkungan:</span> Membangun jejaring advokasi untuk mendorong kebijakan publik yang pro-lingkungan, termasuk legislasi perlindungan alam, tata ruang, dan pengelolaan sumber daya yang berkelanjutan terutama yang terkait dengan sumber-sumber alam di wilayah Republik Indonesia.
+                            </li>
+                            <li className="mb-4">
+                                <span className="font-bold">Kemitraan Kolaboratif:</span> Bekerja sama dengan pemerintah, perusahaan, lembaga pendidikan, dan organisasi non-profit lainnya untuk mencapai tujuan bersama dalam pelestarian lingkungan hidup.
+                            </li>
+                            <li className="mb-4">
+                                <span className="font-bold">Menciptakan Kaderisasi:</span> Menumbuhkan kaderisasi yang handal dan kritis demi menjaga kelestarian lingkungan serta menumbuhkan rasa nasionalisme dan cinta terhadap bangsa dan negara melalui penjagaan dan pelestarian sumber daya alam.
+                            </li>
+                        </ol>
+                    </div>
+                );
             case "ad":
-                return <p>Ad Content</p>;
+                return (
+                    <div className="max-w-3xl mx-auto">
+                        <iframe src="assets/pdf/ad.pdf" width="100%" height="600px"></iframe>
+                    </div>
+                );
             case "struktur":
-                return <p>Struktur Content</p>;
-            case "laporan tahunan":
-                return <p>Laporan tahunan Content</p>;
-            default:
-                return <p>Latar belakangan Content</p>;
+                return (
+                <div className="max-w-3xl mx-auto">
+                    <Mermaid content={diagram} />
+                </div>
+                );
         }
     };
 
@@ -57,14 +101,6 @@ export default function Profile() {
                                     className={`w-full text-left py-2 px-4 rounded ${activeContent === "struktur" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
                                 >
                                     Struktur
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => setActiveContent("laporan tahunan")}
-                                    className={`w-full text-left py-2 px-4 rounded ${activeContent === "laporan tahunan" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
-                                >
-                                    Laporan tahunan
                                 </button>
                             </li>
                         </ul>

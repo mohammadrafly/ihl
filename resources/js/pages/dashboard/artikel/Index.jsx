@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import DashboardLayout from '../../layouts/DashboardLayout';
+import TruncateContent from '../../components/TruncatedContent';
 
 const Index = () => {
     const { artikel } = usePage().props;
@@ -57,10 +58,6 @@ const Index = () => {
         }
     };
 
-    const truncateContent = (content, maxLength = 100) => {
-        return content.length > maxLength ? content.substring(0, maxLength) + '...' : content;
-    };
-
     return (
         <DashboardLayout>
             {flashMessage && (
@@ -88,7 +85,9 @@ const Index = () => {
                         <tr key={article.id}>
                             <td className="py-2 px-4 border">{index + 1}</td>
                             <td className="py-2 px-4 border">{article.title}</td>
-                            <td className="py-2 px-4 border">{truncateContent(article.content)}</td>
+                            <td className="py-2 px-4 border">
+                                <TruncateContent content={article.content} length={100} />
+                            </td>
                             <td className="py-2 px-4 border">
                                 <Link href={`artikel/update/${article.id}`} className="mr-2">View</Link>
                                 <button

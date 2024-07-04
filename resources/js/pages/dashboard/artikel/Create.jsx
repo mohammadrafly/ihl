@@ -16,24 +16,8 @@ const Create = () => {
         setCsrf(csrfToken);
     }, []);
 
-    const validateForm = () => {
-        const errors = {};
-        if (!title) {
-            errors.title = 'Title is required';
-        }
-        if (!content) {
-            errors.content = 'Content is required';
-        }
-        setFormErrors(errors);
-        return Object.keys(errors).length === 0;
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!validateForm()) {
-            return;
-        }
 
         const formData = new FormData();
         formData.append('title', title);

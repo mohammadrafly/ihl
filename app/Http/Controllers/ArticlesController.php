@@ -72,7 +72,7 @@ class ArticlesController extends Controller
             $validator = Validator::make($request->all(), [
                 'title' => 'required|string|max:255',
                 'content' => 'required|string',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
             if ($validator->fails()) {
@@ -92,6 +92,8 @@ class ArticlesController extends Controller
                 $imageName = Str::random(10) . '.' . $image->getClientOriginalExtension();
                 $image->storeAs('images', $imageName, 'public');
                 $data['image'] = $imageName;
+            } else {
+                $data['image'] = $artikel->image;
             }
 
             if (!$artikel->update($data)) {
