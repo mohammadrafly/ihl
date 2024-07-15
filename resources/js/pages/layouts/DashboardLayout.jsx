@@ -3,7 +3,7 @@ import Header from './partials/dashboard/Header';
 import Sidebar from './partials/dashboard/Sidebar';
 import { usePage } from "@inertiajs/react";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout ({ children }) {
     const { title } = usePage().props;
     return (
         <div className="flex min-h-screen">

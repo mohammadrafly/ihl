@@ -5,6 +5,7 @@ import diagram from "../components/diagram";
 
 export default function Profile() {
     const [activeContent, setActiveContent] = useState("latar belakangan");
+    const [isPasswordValid, setIsPasswordValid] = useState(false);
 
     const renderContent = () => {
         switch (activeContent) {
@@ -12,11 +13,21 @@ export default function Profile() {
                 return (
                     <div>
                         <img src="assets/images/latar-belakang.jpg" alt="" className="rounded-xl"/>
-                        Pada era modern ini, tantangan terbesar yang dihadapi manusia adalah menjaga keseimbangan antara pembangunan ekonomi dan pelestarian lingkungan hidup. Di tengah-tengah urbanisasi yang cepat dan pertumbuhan populasi yang tak terelakkan, ekosistem alam kita semakin terancam oleh perubahan iklim, degradasi habitat, dan polusi lingkungan. <br/><br></br>
-                        Dalam menghadapi tantangan ini, berdirinya Indonesiaku Hijau Lestari, sebuah lembaga non-profit yang didedikasikan untuk pelestarian dan perlindungan lingkungan hidup, menjadi sangat penting. Berawal dari kesadaran akan pentingnya menjaga alam sebagai warisan yang harus kita jaga bagi generasi mendatang, Indonesiaku Hijau Lestari didirikan dengan tujuan utama untuk melindungi keanekaragaman hayati, memulihkan ekosistem yang terdegradasi, dan mendidik masyarakat tentang pentingnya berkontribusi dalam upaya pelestarian alam. <br/><br></br>
-                        Diprakarsai oleh alhm. Bapak Suhadi Pangestu, Lembaga ini telah disahkan secara hukum melalui surat pengesahan Kementrian Hukum dan Hak Asasi Manusia Republik Indonesia dengan nomor AHU-0000411.AH.01.07.TAHUN 2022 dengan Akta Notaris no. 06 tanggal 23 Juni 2021 yang didirikan berazaskan Pancasila dan Undang-undang Dasar Negara Republik Indonesia 1945 yang bertujuan social dalam menjaga, mengawasi dan memberikan edukasi serta solusi terhadap segala permasalahan lingkungan demi menciptakan lingkungan alam yang Lestari dan berkesinambungan. Melalui kolaborasi dengan pemerintah, lembaga swadaya masyarakat, sektor bisnis, dan masyarakat umum, kami telah berhasil melaksanakan sejumlah inisiatif yang signifikan dalam upaya kami untuk mengatasi tantangan lingkungan yang semakin kompleks.<br/><br></br>
-                        Dukungan yang kami terima dari para donatur, sukarelawan, dan mitra telah memungkinkan kami untuk meraih berbagai pencapaian yang membanggakan dalam upaya pelestarian alam. Namun, kami sadar bahwa perjalanan ini masih jauh dari selesai, dan kami berkomitmen untuk terus bekerja keras demi menciptakan sebuah dunia di mana manusia dan alam dapat hidup berdampingan dalam harmoni.<br/><br></br>
-                        Dengan dorongan semangat dan dukungan yang terus-menerus dari seluruh pihak, Indonesiaku Hijau Lestari yakin bahwa kita dapat mencapai tujuan bersama dalam melestarikan lingkungan hidup untuk generasi mendatang.<br/><br></br>
+                        <p>
+                        Pada era modern ini, tantangan terbesar yang dihadapi manusia adalah menjaga keseimbangan antara pembangunan ekonomi dan pelestarian lingkungan hidup. Di tengah-tengah urbanisasi yang cepat dan pertumbuhan populasi yang tak terelakkan, ekosistem alam kita semakin terancam oleh perubahan iklim, degradasi habitat, dan polusi lingkungan.
+                        </p>
+                        <p>
+                        Dalam menghadapi tantangan ini, berdirinya Indonesiaku Hijau Lestari, sebuah lembaga non-profit yang didedikasikan untuk pelestarian dan perlindungan lingkungan hidup, menjadi sangat penting. Berawal dari kesadaran akan pentingnya menjaga alam sebagai warisan yang harus kita jaga bagi generasi mendatang, Indonesiaku Hijau Lestari didirikan dengan tujuan utama untuk melindungi keanekaragaman hayati, memulihkan ekosistem yang terdegradasi, dan mendidik masyarakat tentang pentingnya berkontribusi dalam upaya pelestarian alam.
+                        </p>
+                        <p>
+                        Diprakarsai oleh alhm. Bapak Suhadi Pangestu, Lembaga ini telah disahkan secara hukum melalui surat pengesahan Kementrian Hukum dan Hak Asasi Manusia Republik Indonesia dengan nomor AHU-0000411.AH.01.07.TAHUN 2022 dengan Akta Notaris no. 06 tanggal 23 Juni 2021 yang didirikan berazaskan Pancasila dan Undang-undang Dasar Negara Republik Indonesia 1945 yang bertujuan social dalam menjaga, mengawasi dan memberikan edukasi serta solusi terhadap segala permasalahan lingkungan demi menciptakan lingkungan alam yang Lestari dan berkesinambungan. Melalui kolaborasi dengan pemerintah, lembaga swadaya masyarakat, sektor bisnis, dan masyarakat umum, kami telah berhasil melaksanakan sejumlah inisiatif yang signifikan dalam upaya kami untuk mengatasi tantangan lingkungan yang semakin kompleks.
+                        </p>
+                        <p>
+                        Dukungan yang kami terima dari para donatur, sukarelawan, dan mitra telah memungkinkan kami untuk meraih berbagai pencapaian yang membanggakan dalam upaya pelestarian alam. Namun, kami sadar bahwa perjalanan ini masih jauh dari selesai, dan kami berkomitmen untuk terus bekerja keras demi menciptakan sebuah dunia di mana manusia dan alam dapat hidup berdampingan dalam harmoni.
+                        </p>
+                        <p>
+                        Dengan dorongan semangat dan dukungan yang terus-menerus dari seluruh pihak, Indonesiaku Hijau Lestari yakin bahwa kita dapat mencapai tujuan bersama dalam melestarikan lingkungan hidup untuk generasi mendatang.
+                        </p>
                     </div>
                 );
             case "visi misi":
@@ -58,16 +69,28 @@ export default function Profile() {
                 );
             case "struktur":
                 return (
-                <div className="max-w-3xl mx-auto">
-                    <Mermaid content={diagram} />
-                </div>
+                    <div className="max-w-3xl mx-auto">
+                        <img src="assets/images/struktur.png" alt="Logo"/>
+                    </div>
                 );
+        }
+    };
+
+    const handleAdClick = () => {
+        const password = "officialihl";
+        const enteredPassword = prompt("Please enter the password to view Anggaran Dasar:");
+
+        if (enteredPassword === password) {
+            setIsPasswordValid(true);
+            setActiveContent("ad");
+        } else {
+            alert("Incorrect password!");
         }
     };
 
     return (
         <HomeLayout>
-            <div className="w-full min-h-screen xl:px-64 xl:py-10">
+            <div className="w-full min-h-screen xl:px-32 xl:py-10">
                 <div className="grid grid-cols-1 xl:grid-cols-6 gap-4">
                     <div className="xl:col-span-2 bg-white p-4">
                         <ul className="flex flex-col space-y-2">
@@ -89,10 +112,10 @@ export default function Profile() {
                             </li>
                             <li>
                                 <button
-                                    onClick={() => setActiveContent("ad")}
+                                    onClick={handleAdClick}
                                     className={`w-full text-left py-2 px-4 rounded ${activeContent === "ad" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
                                 >
-                                    Ad
+                                    Anggaran Dasar
                                 </button>
                             </li>
                             <li>

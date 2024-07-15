@@ -10,7 +10,7 @@ export default function Index() {
                 <div className="col-span-5">
                     <ArtikelList />
                 </div>
-                <div className="col-span-1 flex items-center justify-center">
+                <div className="col-span-1 flex items-start">
                     <Sidebar />
                 </div>
             </div>

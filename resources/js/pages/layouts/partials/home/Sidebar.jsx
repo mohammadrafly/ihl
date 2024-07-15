@@ -34,7 +34,7 @@ const Sidebar = () => {
     }, []);
 
     return (
-        <div className="bg-green-500 text-white p-5 h-full w-[410px] rounded-lg">
+        <div className="bg-green-500 text-white p-5 h-fit w-[410px] rounded-lg">
             <div className="mb-5 border p-5">
                 <ul className="flex flex-col gap-5">
                     {Object.keys(articleCountsByYear).map((year) => (

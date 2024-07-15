@@ -144,16 +144,16 @@ export default function Contact() {
                 </div>
                 <div className='max-w-3xl p-5 bg-white shadow-md rounded-xl flex flex-col justify-center items-center text-center space-y-4'>
                     <p className='text-gray-800 text-xl'>
-                        <strong>Email:</strong> <a href="mailto:indonesiakuhijaulestari@gmail.com" className='text-blue-500'>indonesiakuhijaulestari@gmail.com</a>
+                        <strong>Email:</strong> <a href="mailto:official@indonesiakuhijaulestari.org" className='text-blue-500'>official@indonesiakuhijaulestari.org</a>
                     </p>
                     <p className='text-gray-800 text-xl'>
-                        <strong>IG:</strong> <a href="https://www.instagram.com/indonesiakuhijaulestari/" className='text-blue-500'>@indonesiakuhijaulestari</a>
+                        <strong>IG:</strong> <a href="https://www.instagram.com/indonesiakuhijaulestari/" className='text-blue-500'>@IndonesiakuHijauLestari</a>
                     </p>
                     <p className='text-gray-800 text-xl'>
-                        <strong>DONASI:</strong><br />
+                        <strong>Donasi:</strong><br />
                         a/n. Indonesiaku Hijau Lestari<br />
                         Bank Mandiri cabang Batu<br />
-                        144-xxx-xxx-xxxx-xx
+                        144-00-4230-6008
                     </p>
                 </div>
             </div>
