@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HomeLayout from "../layouts/HomeLayout";
-import Mermaid from "../components/Mermaid";
-import diagram from "../components/diagram";
+import { MapInteractionCSS } from 'react-map-interaction';
 
 export default function Profile() {
     const [activeContent, setActiveContent] = useState("latar belakangan");
@@ -70,7 +69,9 @@ export default function Profile() {
             case "struktur":
                 return (
                     <div className="max-w-3xl mx-auto">
-                        <img src="assets/images/struktur.png" alt="Logo"/>
+                        <MapInteractionCSS>
+                            <img src="assets/images/struktur.png" alt="Logo"/>
+                        </MapInteractionCSS>
                     </div>
                 );
         }
