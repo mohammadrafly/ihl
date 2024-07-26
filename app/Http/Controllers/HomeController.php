@@ -13,13 +13,16 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Index', [
-            'artikelAll' => Artikel::all()
+            'artikelAll' => Artikel::all(),
+            'title' => 'Home'
         ]);
     }
 
     public function profile()
     {
-        return Inertia::render('home/Profile');
+        return Inertia::render('home/Profile', [
+            'title'=> 'Profile'
+        ]);
     }
 
     public function contact(Request $request)
@@ -48,13 +51,16 @@ class HomeController extends Controller
             ]);
         }
 
-        return Inertia::render('home/Contact');
+        return Inertia::render('home/Contact', [
+            'title' => 'Contact'
+        ]);
     }
 
     public function member()
     {
         return Inertia::render('home/Member', [
             'member' => Member::all(),
+            'title' => 'Member'
         ]);
     }
 }

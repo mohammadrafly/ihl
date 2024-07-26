@@ -13,7 +13,7 @@ export default function Header() {
 
     return (
         <header>
-            <div className="flex justify-center items-center bg-white text-black p-2 px-5 2xl:px-32">
+            <div className="flex justify-center items-center bg-green-200 text-black p-2 px-5 2xl:px-32">
                 <div className="md:flex items-center space-x-4">
                     <div className="text-2xl font-bold justify-center items-center flex">
                         <img src="assets/images/logo.png" alt="Logo" width={150} height={150} />
@@ -32,11 +32,7 @@ export default function Header() {
                 </div>
             </div>
             <nav className="bg-green-500 text-gray-100 p-2 px-10 2xl:px-32 sticky top-0">
-                <div className="flex justify-between items-center">
-                    <div className="text-2xl font-bold flex items-center">
-                        <img src="assets/images/logo.png" alt="Logo" width={75} height={75} />
-                        <h1 className="px-5 font-bold font-roboto">INDONESIAKU HIJAU LESTARI</h1>
-                    </div>
+                <div className="flex justify-between items-center py-5">
                     <div className="hidden md:flex">
                         <ul className="flex space-x-5 uppercase font-semibold">
                             <li>

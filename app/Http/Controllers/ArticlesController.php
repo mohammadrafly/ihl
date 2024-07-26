@@ -159,7 +159,8 @@ class ArticlesController extends Controller
 
         return Inertia::render('components/ArtikelSingle', [
             'artikel' => $artikel,
-            'artikelAll' => $artikelAll
+            'artikelAll' => $artikelAll,
+            'title' => $artikel->title
         ]);
     }
 
@@ -174,7 +175,8 @@ class ArticlesController extends Controller
 
         return Inertia::render('components/ArtikelYear', [
             'artikel' => $artikel,
-            'artikelAll' => $artikelAll
+            'artikelAll' => $artikelAll,
+            'title' => $year
         ]);
     }
 }
