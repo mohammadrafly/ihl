@@ -32,7 +32,7 @@ export default function Header() {
                 </div>
             </div>
             <nav className="bg-green-500 text-gray-100 p-2 px-10 2xl:px-32 sticky top-0">
-                <div className="flex justify-between items-center py-5">
+                <div className="flex justify-between items-center py-1">
                     <div className="hidden md:flex">
                         <ul className="flex space-x-5 uppercase font-semibold">
                             <li>
@@ -58,7 +58,7 @@ export default function Header() {
                     </div>
                 </div>
                 {isMenuOpen && (
-                    <div className="md:hidden absolute left-0 w-full bg-green-500 text-white p-5">
+                    <div className="md:hidden">
                         <ul className="flex flex-col space-y-5 uppercase font-semibold">
                             <li>
                                 <Link href="/" className={`transition-all duration-300 hover:text-black ${isActive('/') ? 'text-black' : ''}`}>Home</Link>
